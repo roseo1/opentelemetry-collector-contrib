@@ -46,7 +46,7 @@ func addToGroupedMetric(pmd pmetric.Metric, groupedMetrics map[interface{}]*grou
 	}
 
 	for i := 0; i < dps.Len(); i++ {
-		dps, retained := dps.CalculateDeltaDatapoints(i, metadata.instrumentationScopeName, config.DetailedMetrics)
+		dps, retained := dps.CalculateDeltaDatapoints(i, metadata.instrumentationScopeName, config.DetailedMetrics, logger)
 		if !retained {
 			continue
 		}
